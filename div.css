@@ -1,0 +1,48 @@
+.logo{
+    width: 45px;
+    height: 45px;
+    margin-bottom: 1%;
+}
+
+.Body{
+    font-family: 思源黑體;
+    background-color:#a0a5bb ;
+}
+
+.site{
+    margin: 15% 10%;
+}
+.card-body{
+    background-color: #f1eff0;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.header{
+    margin-top: 5%;
+}
+.checkbox_d{
+    margin: 2%;
+    font-size: 15px;
+}
+
+.heart{
+    float: right;
+    border: none;
+    margin: 0;
+}
+.heart img{
+    width: 50%;
+    height: 50%;
+}
+.back{
+    margin: 5%;
+}
+
+.move{
+    width: 40%;
+    height: 20%;
+    float:  center;
+}
