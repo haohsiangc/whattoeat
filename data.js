@@ -10,5 +10,16 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-
-var db = firebase.database();
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        console.log("loged in")
+        var db = firebase.database();
+        db.ref("/resturant").orderByChild("Breakfast").equalTo('y').once('value', function (snapshot) {
+            snapshot.forEach(function (item) {
+                console.log(item.key + " " + item.val().Breakfast);
+            })
+        })
+    } else {
+        alert("Plz login first");
+    }
+});
