@@ -1,61 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
+    <title>呷蝦米</title>
     <meta charset="UTF-8">
     <meta NAME="KeyWords" CONTENT="呷蝦米">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="div.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <title>呷蝦米</title>
+
 </head>
 
 <body class="Body">
     <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <!-- 登入 -->
+            <div class="col-md-4 site">
+                <div class="card">
+                    <div class="card-body">
+                        <label for="ID">E-mail</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="account">
 
-        <div class="row justify-content-center">
-            <div class="col-5">
-                <div class="card bg-light text-center site border-secondary rounded">
-                    <div class="card-body">
-                        <a href="list.html">
-                            <p class="card-text">早餐</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- car end -->
-            <div class="col-5">
-                <div class="card bg-light text-center site border-secondary rounded">
-                    <div class="card-body">
-                        <button><p class="card-text">中餐</p></button>
-                    </div>
-                </div>
-            </div>
-            <!-- car end -->
-        </div>
-        <!-- row end -->
+                        <br>
+                        <label for="Password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
 
-        <div class="row justify-content-center">
-            <div class="col-5">
-                <div class="card bg-light text-center site border-secondary rounded">
-                    <div class="card-body">
-                        <b><p class="card-text">晚餐</p></b>
+                        <br>
+                        <button class="btn btn-secondary" onclick="SignIn()">登入</button> |
+                        <button class="btn btn-secondary" onclick="SignUp()">註冊</button> |
+                        <button class="btn btn-secondary">
+                            <a class="text-light" href="index.html">略過</a>
+                        </button>
                     </div>
+                    <!-- card body end -->
                 </div>
+                <!-- card end -->
             </div>
-            <!-- car end -->
-            <div class="col-5">
-                <div class="card bg-light text-center site border-secondary rounded">
-                    <div class="card-body">
-                        <b><p class="card-text">宵夜</p></b>
-                    </div>
-                </div>
-            </div>
-            <!-- car end -->
+            <!-- col-4- end -->
+            <div class="col-md-3"></div>
         </div>
         <!-- row end -->
     </div>
@@ -72,11 +58,11 @@
     </footer>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
     <!-- TODO: Add SDKs for Firebase products that you want to use
-        https://firebase.google.com/docs/web/setup#available-libraries -->
+    https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
-    <script src="./data.js"></script>
+    <script src="./user.js"></script>
 </body>
 
 </html>
