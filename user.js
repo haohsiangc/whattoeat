@@ -1,6 +1,6 @@
 // Your web app's Firebase configuration
 var firebaseConfig = {
-    apiKey: "",
+    apiKey: "AIzaSyBT5FI6MEGp17B22puwDIa_oX-2mHmYCvw",
     authDomain: "whattoeat-mis.firebaseapp.com",
     databaseURL: "https://whattoeat-mis.firebaseio.com",
     projectId: "whattoeat-mis",
@@ -30,7 +30,7 @@ function SignUp() {
             var errorMessage = error.message;
         })
         .then(function() {
-            location.href = "./done.html";
+            location.href = "./signup_done.html";
         });
 }
 
@@ -55,7 +55,7 @@ function SignIn() {
             return firebase.auth().signInWithEmailAndPassword(email, password)
                     .then(function (user) {
                         if (user) {
-                            location.href = "./index.html";
+                            location.href = "./choose.html";
                         // User is signed in.
                         } else {
                             alert("plz signup first");
