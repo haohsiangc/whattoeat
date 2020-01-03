@@ -91,15 +91,6 @@
 
                         <!-- checkbox -->
                         <div class="form-check checkbox_d">
-                            <input class="form-check-input" type="checkbox" value="" id="three">
-                            <label class="form-check-label" for="three">
-                              火鍋類
-                            </label>
-                          </div>
-                        <!-- checkbox end -->
-
-                        <!-- checkbox -->
-                        <div class="form-check checkbox_d">
                             <input class="form-check-input" type="checkbox" value="" id="four">
                             <label class="form-check-label" for="four">
                               中式料理
@@ -160,17 +151,17 @@
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
                 var db = firebase.database();
-                var storage = firebase.storage();
+                //var storage = firebase.storage();
                 var str = '';
                 var content = document.getElementById('list');
                 db.ref("/resturant").orderByChild("Breakfast").equalTo('y').once('value', function (snapshot) {
                     snapshot.forEach(function (item) {
-                        var picRef = storage.ref('pic/'+item.key+'.JPG');
-                        //console.log(storageRef);
+                        // var picRef = storage.ref('pic/'+item.key+'.JPG');
+                        // document.querySelector('img').src = picRef;
                         str += `
                             <div class="col-6 header">
                                 <div class="card bg-light text-center" >
-                                    <a href=""><img class="card-img-top" src="${picRef}"></a>
+                                    <a href=""><img class="card-img-top" id="pic" src="./pic/${item.key}.jpg"></a>
                                         <div class="card-footer">
                                             <p class="card-text">${item.key}</p>
                                         </div>
