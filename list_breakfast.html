@@ -24,28 +24,28 @@
     
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
         
-                    <ul class="navbar-nav mr-auto">
-        
-                    <li class="nav-item">
-                        <a class="text-light nav-link" href="index.html">早餐<span class="sr-only">(current)</span></a>
-                    </li>
-        
-                    <li class="nav-item">
-                        <a class="text-light nav-link" href="About.html">午餐<span class="sr-only">(current)</span></a>
-                    </li>
-        
-                    <li class="nav-item">
-                        <a class="text-light nav-link" href="News.html">晚餐</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="progress.html">宵夜</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="cart.html">會員登入</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="cart.html">我的最愛</a>
-                    </li>
+                        <ul class="navbar-nav mr-auto">
+            
+                        <li class="nav-item">
+                            <a class="text-light nav-link" href="list_breakfast.html">早餐<span class="sr-only">(current)</span></a>
+                        </li>
+            
+                        <li class="nav-item">
+                            <a class="text-light nav-link" href="list_lunch.html">午餐<span class="sr-only">(current)</span></a>
+                        </li>
+            
+                        <li class="nav-item">
+                            <a class="text-light nav-link" href="list_dinner.html">晚餐</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="list_supper.html">宵夜</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="index.html">會員登入</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">我的最愛</a>
+                        </li>
                     
                     </ul>
                 </div>          
@@ -160,24 +160,25 @@
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
                 var db = firebase.database();
+                var storage = firebase.storage();
                 var str = '';
                 var content = document.getElementById('list');
                 db.ref("/resturant").orderByChild("Breakfast").equalTo('y').once('value', function (snapshot) {
                     snapshot.forEach(function (item) {
-                        console.log(item.key)
-                            str += `
-                                <div class="col-6 header">
-                                    <div class="card bg-light text-center" >
-                                        <!-- <a href="../原味茶/古早味紅茶.html"><img class="card-img-top" src="../icon/原味茶/古早味紅茶.jfif" alt="古早味紅茶"> </a> -->
-                                            <div class="card-footer">
-                                                <p class="card-text">${item.key}</p>
-                                            </div>
-                                    </div>
-                                </div>`;
-                                content.innerHTML = str;
+                        var picRef = storage.ref('pic/'+item.key+'.JPG');
+                        //console.log(storageRef);
+                        str += `
+                            <div class="col-6 header">
+                                <div class="card bg-light text-center" >
+                                    <a href=""><img class="card-img-top" src="${picRef}"></a>
+                                        <div class="card-footer">
+                                            <p class="card-text">${item.key}</p>
+                                        </div>
+                                </div>
+                            </div>`;
+                        content.innerHTML = str;
                     })
                 })
-                //console.log("loged in")
             } else {
                 alert("Plz login first");
             }
