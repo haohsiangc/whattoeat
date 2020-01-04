@@ -32,7 +32,6 @@ function SignUp() {
             location.href = "./signup_done.html";
         });
 }
-
 function SignIn() {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
@@ -44,28 +43,20 @@ function SignIn() {
         alert('Please enter a password.');
         return;
     }
-    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-        .then(function () {
-            // Existing and future Auth states are now persisted in the current
-            // session only. Closing the window would clear any existing state even
-            // if a user forgets to sign out.
-            // ...
-            // New sign-in will be persisted with session persistence.
-            return firebase.auth().signInWithEmailAndPassword(email, password)
-                .then(function (user) {
-                    if (user) {
-                        location.href = "./choose.html";
-                        // User is signed in.
-                    } else {
-                        alert("plz signup first");
-                        // No user is signed in.
-                    }
-                });
-        })
+    firebase.auth().signInWithEmailAndPassword(email, password)
         .catch(function (error) {
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
+        })
+        .then(function (user) {
+            if (user) {
+                firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+                    .then(function () {
+                        location.href = "./choose.html";
+                    })
+                // User is signed in.
+            }
         });
 }
 // function filter() {
