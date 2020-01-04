@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta NAME="KeyWords" CONTENT="呷蝦米">
@@ -10,7 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <title>晚餐</title>
+    <title>呷蝦米</title>
 </head>
 <body class="Body">
     <div class="container">
@@ -24,28 +24,28 @@
     
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
         
-                    <ul class="navbar-nav mr-auto">
-        
+                        <ul class="navbar-nav mr-auto">
+            
                         <li class="nav-item">
-                            <a class="text-light nav-link" href="list_breakfast.html">早餐<span class="sr-only">(current)</span></a>
+                            <a class="text-light nav-link" href="list.html?period=Breakfast">早餐<span class="sr-only">(current)</span></a>
                         </li>
             
                         <li class="nav-item">
-                            <a class="text-light nav-link" href="list_lunch.html">午餐<span class="sr-only">(current)</span></a>
+                            <a class="text-light nav-link" href="list.html?period=Lunch">午餐<span class="sr-only">(current)</span></a>
                         </li>
             
                         <li class="nav-item">
-                            <a class="text-light nav-link" href="list_dinner.html">晚餐</a>
+                            <a class="text-light nav-link" href="list.html?period=Dinner">晚餐</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="list_supper.html">宵夜</a>
+                            <a class="nav-link text-light" href="list.html?period=Supper">宵夜</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" href="index.html">會員登入</a>
-                        </li>
+                        <!-- </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" href="#">我的最愛</a>
-                        </li>
+                        </li> -->
                     
                     </ul>
                 </div>          
@@ -73,59 +73,22 @@
                         <hr>
                         <!-- checkbox -->
                         <div class="form-check checkbox_d">
-                            <input class="form-check-input" type="checkbox" value="" id="one">
-                            <label class="form-check-label" for="one">
-                              飯類
-                            </label>
+                            <input class="form-check-input" id="filter" type="checkbox" value="rice" onchange="filter()">
+                            <label class="form-check-label" for="one">飯類</label>
                           </div>
                         <!-- checkbox end -->
-
                         <!-- checkbox -->
                         <div class="form-check checkbox_d">
-                            <input class="form-check-input" type="checkbox" value="" id="two">
-                            <label class="form-check-label" for="two">
-                              麵類
-                            </label>
+                            <input class="form-check-input" id="filter" type="checkbox" value="noodles" onchange="filter()">
+                            <label class="form-check-label" for="two">麵類</label>
                           </div>
                         <!-- checkbox end -->
-
                         <!-- checkbox -->
                         <div class="form-check checkbox_d">
-                            <input class="form-check-input" type="checkbox" value="" id="three">
-                            <label class="form-check-label" for="three">
-                              火鍋類
-                            </label>
-                          </div>
+                            <input class="form-check-input" id="filter" type="checkbox" value="others" onchange="filter()">
+                            <label class="form-check-label" for="three">其他</label>
+                        </div>
                         <!-- checkbox end -->
-
-                        <!-- checkbox -->
-                        <div class="form-check checkbox_d">
-                            <input class="form-check-input" type="checkbox" value="" id="four">
-                            <label class="form-check-label" for="four">
-                              中式料理
-                            </label>
-                          </div>
-                        <!-- checkbox end -->
-
-                        <!-- checkbox -->
-                        <div class="form-check checkbox_d">
-                            <input class="form-check-input" type="checkbox" value="" id="five">
-                            <label class="form-check-label" for="five">
-                              韓式料理
-                            </label>
-                          </div>
-                        <!-- checkbox end -->
-
-                        <!-- checkbox -->
-                        <div class="form-check checkbox_d">
-                            <input class="form-check-input" type="checkbox" value="" id="six">
-                            <label class="form-check-label" for="six">
-                              泰式料理
-                            </label>
-                          </div>
-                        <!-- checkbox end -->
-
-
                     </div>
                     <!-- dropdown menu end -->
                 </div>
@@ -155,33 +118,9 @@
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
-    <script src="./data.js"></script>
+    <script src="./script.js"></script>
     <script>
-        firebase.auth().onAuthStateChanged(function (user) {
-            if (user) {
-                var db = firebase.database();
-                var str = '';
-                var content = document.getElementById('list');
-                db.ref("/resturant").orderByChild("Dinner").equalTo('y').once('value', function (snapshot) {
-                    snapshot.forEach(function (item) {
-                        console.log(item.key)
-                            str += `
-                                <div class="col-6 header">
-                                    <div class="card bg-light text-center" >
-                                    <a href=""><img class="card-img-top" id="pic" src="./pic/${item.key}.jpg"></a>
-                                            <div class="card-footer">
-                                                <p class="card-text">${item.key}</p>
-                                            </div>
-                                    </div>
-                                </div>`;
-                                content.innerHTML = str;
-                    })
-                })
-                //console.log("loged in")
-            } else {
-                alert("Plz login first");
-            }
-        });
+        list();
     </script>
 </body>
 </html>
