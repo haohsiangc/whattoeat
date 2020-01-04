@@ -51,6 +51,6 @@ a:hover{
     height: 99px;
 }
 .menu{
-    width: 375px;
-    height: 273px;
+    width: auto;
+    height: 350px;
 }

@@ -7,7 +7,7 @@ var firebaseConfig = {
     storageBucket: "whattoeat-mis.appspot.com",
     messagingSenderId: "101696256042",
     appId: "1:101696256042:web:f40e2d85f791e483bd2b53"
-};
+  };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 function SignUp() {
@@ -17,8 +17,8 @@ function SignUp() {
         alert('Please enter an email address.');
         return;
     }
-    if (password.length < 4) {
-        alert('Please enter a password.');
+    if (password.length < 6) {
+        alert('Please enter a password and at least 6 characters.');
         return;
     }
     // Create user with email and pass.
