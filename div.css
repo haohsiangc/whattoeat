@@ -51,6 +51,16 @@ a:hover{
     height: 99px;
 }
 .menu{
-    width: auto;
+    width: 1080px;
     height: 350px;
+}
+.headd{
+    font-size: 20px;
+    margin-top: 3%;
+    right: 6%;
+}
+.title{
+    font-size: 20px;
+    margin-top: 3%;
+    left: 7%;
 }

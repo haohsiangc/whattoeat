@@ -13,91 +13,44 @@
     <title>呷蝦米</title>
 </head>
 <body class="Body">
-    <div class="container">
 
-        <div class="row ">
-            <!-- nav bar -->
-            <nav class="bg-dark navbar navbar-expand-lg navbar-dark col-3">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-    
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        
-                        <ul class="navbar-nav mr-auto">
-            
-                        <li class="nav-item">
-                            <a class="text-light nav-link" href="list.html?period=Breakfast">早餐<span class="sr-only">(current)</span></a>
-                        </li>
-            
-                        <li class="nav-item">
-                            <a class="text-light nav-link" href="list.html?period=Lunch">午餐<span class="sr-only">(current)</span></a>
-                        </li>
-            
-                        <li class="nav-item">
-                            <a class="text-light nav-link" href="list.html?period=Dinner">晚餐</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="list.html?period=Supper">宵夜</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="index.html">會員登入</a>
-                        <!-- </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="#">我的最愛</a>
-                        </li> -->
-                    
-                    </ul>
-                </div>          
-            </nav>
-            <!-- navbar end -->
-            <div class="col-5 bg-dark">
-                <div class="header">
-                   <form class="form-inline">
-                        <input class="form-control mr-sm-0" type="search" placeholder="Search" aria-label="Search">
-                        <!-- <button class="btn btn-sm btn-outline-success my-2 my-sm-1" type="submit">Search</button> -->
-                    </form> 
-                </div>
-                
-            </div>
+    <!-- nav bar -->
+    <nav class="bg-dark navbar navbar-expand-lg navbar-dark">
+        <button class="navbar-toggler col-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <!-- 篩選 -->
-            <div class="bg-dark col-4 text-right">
-                <div class="header">
-                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        篩選
-                    </button> 
-                
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <p class="text-center" style="font-size: 16px;">食物類型</p>
-                        <hr>
-                        <!-- checkbox -->
-                        <div class="form-check checkbox_d">
-                            <input class="form-check-input" id="filter" type="checkbox" value="rice" onchange="filter()">
-                            <label class="form-check-label" for="one">飯類</label>
-                          </div>
-                        <!-- checkbox end -->
-                        <!-- checkbox -->
-                        <div class="form-check checkbox_d">
-                            <input class="form-check-input" id="filter" type="checkbox" value="noodles" onchange="filter()">
-                            <label class="form-check-label" for="two">麵類</label>
-                          </div>
-                        <!-- checkbox end -->
-                        <!-- checkbox -->
-                        <div class="form-check checkbox_d">
-                            <input class="form-check-input" id="filter" type="checkbox" value="others" onchange="filter()">
-                            <label class="form-check-label" for="three">其他</label>
-                        </div>
-                        <!-- checkbox end -->
-                    </div>
-                    <!-- dropdown menu end -->
-                </div>
-            </div>
-            <!-- 篩選end -->
-
+        <div class="headd col-10">
+            <p class="text-light text-center">呷蝦米</p>
         </div>
-        <!-- row wnd -->
 
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav mr-auto">
+    
+                <li class="nav-item">
+                    <a class="text-light nav-link" href="list.html?period=Breakfast">早餐<span class="sr-only">(current)</span></a>
+                </li>
+    
+                <li class="nav-item">
+                    <a class="text-light nav-link" href="list.html?period=Lunch">午餐<span class="sr-only">(current)</span></a>
+                </li>
+    
+                <li class="nav-item">
+                    <a class="text-light nav-link" href="list.html?period=Dinner">晚餐</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="list.html?period=Supper">宵夜</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="index.html">會員登入</a>
+            
+            </ul>
+        </div>          
+    </nav>
+    <!-- navbar end -->
+
+    <div class="container">
         <div class="row" id="list"></div>
         
     </div>

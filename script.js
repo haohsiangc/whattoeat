@@ -10,15 +10,18 @@ var firebaseConfig = {
   };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+function alt_alert(str){
+    _alert.showToast(str);
+}
 function SignUp() {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
     if (email.length < 4) {
-        alert('Please enter an email address.');
+        alt_alert('Please enter an email address.');
         return;
     }
     if (password.length < 6) {
-        alert('Please enter a password and at least 6 characters.');
+        alt_alert('Please enter a password and at least 6 characters.');
         return;
     }
     // Create user with email and pass.
@@ -36,11 +39,11 @@ function SignIn() {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
     if (email.length < 4) {
-        alert('Please enter an email address.');
+        alt_alert('Please enter an email address.');
         return;
     }
     if (password.length < 4) {
-        alert('Please enter a password.');
+        alt_alert('Please enter a password.');
         return;
     }
     firebase.auth().signInWithEmailAndPassword(email, password)
@@ -88,7 +91,7 @@ function list() {
                 })
             })
         } else {
-            alert("Plz login first");
+            alt_alert("Plz login first");
         }
     });
 }
