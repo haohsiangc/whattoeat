@@ -113,11 +113,11 @@ function getDetail() {
                 </ol >
                 <div class="carousel-inner">
                     <div class="carousel-item active text-center">
-                        <img class="d-block w-100" src="./pic/${data.Name}.jpg" alt="First slide">
+                        <img class="d-block w-100 slide" src="./pic/${data.Name}.jpg" alt="First slide">
                     </div>
                     <div class="carousel-item">
                         <a href="./menu/${data.Name}.jpg">
-                            <img class="d-block w-100" src="./menu/${data.Name}.jpg" alt="Second slide">                    
+                            <img class="d-block w-100 slide" src="./menu/${data.Name}.jpg" alt="Second slide">                    
                         </a>
                     </div>
                 </div>
