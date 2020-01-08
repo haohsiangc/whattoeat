@@ -40,19 +40,13 @@ a:hover{
 .back{
     margin: 5%;
 }
-
-.move{
-    width: 40%;
-    height: 20%;
-    float:  center;
+.slide{
+    width: 414px;
+    height: 350px;
 }
 #pic{
     width: 156px;
     height: 99px;
-}
-.menu{
-    width: 1080px;
-    height: 350px;
 }
 .headd{
     font-size: 20px;
