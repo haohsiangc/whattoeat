@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         webSettings.setJavaScriptEnabled(true);
         setContentView(webview);
         webview.setWebViewClient(new WebViewClient());
-        webview.loadUrl("http://ec2-13-125-232-9.ap-northeast-2.compute.amazonaws.com");
+        webview.loadUrl("https://wannaeat.howhowre.link");
         webview.addJavascriptInterface(new JSInterface(),"_alert");
         webview.setOnKeyListener(new View.OnKeyListener(){
             @Override
